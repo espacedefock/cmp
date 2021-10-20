@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 
 // ViewEncapsulation.None: apply css globaly
 // ViewEncapsulation.Emulated:
@@ -9,7 +9,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation }
   styleUrls: ['./server-element.component.css'],
   encapsulation:ViewEncapsulation.None
 })
-export class ServerElementComponent implements OnInit, OnChanges {
+export class ServerElementComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input('srvElement') element: any = {
     type: '',
     name: '',
@@ -28,6 +28,30 @@ export class ServerElementComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     console.log('ngOnInit called');
+  }
+
+  ngDoCheck(){
+    console.log('ngDoCheck called');
+  }
+
+  ngAfterContentInit(){
+    console.log('ngAfterContentInit called');
+  }
+
+  ngAfterContentChecked(){
+    console.log('ngAfterContentChecked called');
+  }
+
+  ngAfterViewInit(){
+    console.log('ngAfterViewInit called');
+  }
+
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked called');
+  }
+
+  ngOnDestroy(){
+    console.log('ngOnDestroy called');
   }
 
 }

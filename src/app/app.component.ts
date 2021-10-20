@@ -36,4 +36,8 @@ export class AppComponent {
   onFirstChange(){
     this.serverElements[0].name = "changed !";
   }
+
+  onFirstDestroy(){
+    this.serverElements.splice(0, 1);
+  }
 }
